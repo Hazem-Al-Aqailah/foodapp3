@@ -1,7 +1,7 @@
 <template>
   <section class="restaurantinfo">
     <!-- loop1 -->
-    <div v-for="store in fooddata" :key="store.id">
+    <div v-for="store in datasource" :key="store.id">
       <h2>{{ store.name }}</h2>
       <p>Delivery {{ store.deliveryTime + "min" }}</p>
       <p>Rating{{ store.rating }}</p>
@@ -19,13 +19,12 @@
         >
           <!-- loop3 -->
           <div class="iteminfo">
-              <div>
-              <h4>{{menuitem.item}}</h4>
-              <p>{{priceFormatting(menuitem.price)}}</p>
-              </div>
-              <button class="ghost">View item</button>
+            <div>
+              <h4>{{ menuitem.item }}</h4>
+              <p>{{ priceFormatting(menuitem.price) }}</p>
+            </div>
+            <button class="ghost">View item</button>
           </div>
-          
         </div>
       </div>
     </div>
@@ -33,17 +32,22 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+// created using vmapstate to fetch the 'fooddata' from the store if we are not using props
+// wechanged the static data fetching to a prop to be able to maniplate the data where the component
+// is being used "resturans page" we shefted the data import to resturants page using mapstate like 
+// we did here before
 
 export default {
-  // created using vmapstate to fetch the 'fooddata' from the store
-  computed: {
-    ...mapState(["fooddata"]),
-  },methods: {
-      priceFormatting(item){
-          return "$" + item.toFixed(2)
-      }
-  }
+  props: {
+    datasource: {
+      type: [Array, Object],
+    },
+  },
+  methods: {
+    priceFormatting(item) {
+      return "$" + item.toFixed(2);
+    },
+  },
 };
 </script>
 
