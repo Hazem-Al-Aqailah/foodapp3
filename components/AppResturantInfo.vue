@@ -23,7 +23,9 @@
               <h4>{{ menuitem.item }}</h4>
               <p>{{ priceFormatting(menuitem.price) }}</p>
             </div>
-            <button class="ghost">View item</button>
+            <nuxt-link :to="`/items/${menuitem.id}`">
+              <button class="ghost">View item</button>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -34,7 +36,7 @@
 <script>
 // created using vmapstate to fetch the 'fooddata' from the store if we are not using props
 // wechanged the static data fetching to a prop to be able to maniplate the data where the component
-// is being used "resturans page" we shefted the data import to resturants page using mapstate like 
+// is being used "resturans page" we shefted the data import to resturants page using mapstate like
 // we did here before
 
 export default {

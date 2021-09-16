@@ -4,7 +4,7 @@
       <h1>Resturants</h1>
       <!-- using vemit-parent -->
       <AppSelect @change="selectedRestaurant = $event" />
-      <pre>{{ $data }}</pre>
+      <!-- <pre>{{ $data }}</pre> -->
     </div>
 
     <AppResturantInfo :datasource="filteredRestaurants" />

@@ -2,8 +2,6 @@
 // we used .server in the name to tell nuxt to do this on the server side not
 // on the client side
 
-
-
 export default async ({ store }) => {
   await store.dispatch("getFoodData"); //calling the function form the store
 };
