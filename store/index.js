@@ -1,17 +1,31 @@
+import { v4 as uuidv4 } from "uuid";
+
 export const state = () => ({
-  fooddata: []
+  fooddata: [],
+  cart:[],
 });
 
-// export const getters = {
-//     getterValue: state => {
-//         return state.value
-//     }
-// }
+export const getters = {
+    totalPrice: state => {
+      // https://css-tricks.com/understanding-the-almighty-reducer/
+      if (!state.cart.length) return 0 
+      return state.cart.reduce((ac, next)=> ac + +next.combinedPrice, 0)
+    },
+    cartCount: state =>{
+      if (!state.cart.length) return 0 
+      return state.cart.reduce((ac, next)=> ac + +next.count, 0)
+    }
+}
 
 // assign the fetched data to the local var
 export const mutations = {
   updateFoodData: (state, data) => {
     state.fooddata = data;
+  },
+  addToCart: (state,formOutput)=>{
+     formOutput.id = uuidv4();  // to create uniqe id for each object we used UUID
+    state.cart.push(formOutput)
+
   }
 };
 
