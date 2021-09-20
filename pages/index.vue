@@ -1,11 +1,17 @@
 <template>
   <main class="container">
     <div class="restaurantheading">
-      <AppHeader/>
+       
+      <AppHeader>
+        <button @click="scrollToElement({ behavior: 'smooth' })">Taste</button>
+      </AppHeader>
+      
       
     </div>
     
-    <AppResturantInfo :datasource="fooddata"/>
+    <AppResturantInfo :datasource="fooddata" class="trans">
+      
+    </AppResturantInfo>
   </main>
 </template>
 
@@ -24,7 +30,16 @@
       AppHeader,
       AppResturantInfo,
       
-    },computed: {
+    },  methods: {
+    scrollToElement(options) {
+      const el = this.$el.getElementsByClassName("trans")[0];
+
+      if (el) {
+        el.scrollIntoView(options);
+      }
+    },
+  },
+    computed: {
       ...mapState([
         'fooddata',
       ])

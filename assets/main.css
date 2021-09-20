@@ -288,3 +288,11 @@ section.restaurantinfo .iteminfo {
   text-align: center;
   line-height: 2;
 }
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.4s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
