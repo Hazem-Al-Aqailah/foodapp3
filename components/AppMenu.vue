@@ -1,6 +1,5 @@
 <template>
     <nav>
-        
         <ul>
         <li><nuxt-link exact to="/"><AppLogo /></nuxt-link></li>
         <li><nuxt-link to="/resturants">Resturants</nuxt-link></li>
@@ -26,5 +25,7 @@
 </script>
 
 <style scoped>
-
+a:hover{
+    filter: brightness(50%);
+}
 </style>

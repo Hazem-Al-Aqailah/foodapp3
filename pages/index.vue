@@ -3,7 +3,7 @@
     <div class="restaurantheading">
        
       <AppHeader>
-        <button @click="scrollToElement({ behavior: 'smooth' })">Taste</button>
+        <button @click="scrollToElement({ behavior: 'smooth' })">Let's go</button>
       </AppHeader>
       
       

@@ -2,7 +2,7 @@
   <!-- made with hero generator https://hero-generator.netlify.app/ -->
   <div>
     <section class="masthead" role="img" aria-label="Image Description">
-      <h1>Tasty Foods</h1>
+      <h1>Food App</h1>
       <slot></slot>
     </section>
   </div>
